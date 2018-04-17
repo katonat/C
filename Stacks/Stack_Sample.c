@@ -2,6 +2,15 @@
 #include <stdlib.h>
 #define MAX 3
 
+/**
+*
+* @author Nathalie Kato
+* Você está na entrada de um beco comprido, estreito e sem saída,
+* no qual carros entram e saem em fila única, pois não há espaço lateral para dois carros.
+* Neste beco cabem três carros.
+*
+*/
+
 typedef struct carro {
     char placa[8];
 } t_carro;
@@ -65,7 +74,7 @@ t_carro pop(t_pilha * pilha) {
     if(isVazia(pilha))
         return vazio;
 
-    return pilha->vetor[pilha->topo--]; //decrementa o topo ap�s a retorno do elemento removido
+    return pilha->vetor[pilha->topo--]; //decrementa o topo após a retorno do elemento removido
 }
 
 void removeUmAUm(t_pilha * pilha) {
