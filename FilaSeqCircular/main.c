@@ -54,14 +54,15 @@ t_elemento remover(t_fila * fila) {
 }
 
 void exibir(t_fila * fila) {
-	int i = 0;
+	int i = 0,
+        j = 0;
 
 	if(isVazia(fila)) {
 		printf("Fila Vazia\n");
 		return;
 	}
     printf("Exibindo fila:    ");
-    for(i = fila->ini; i != (fila->fim + 1) % MAX; i = (i+1) % MAX)
+    for(i = fila->ini, j = 0; j < fila->qntd_elementos; i = (i+1) % MAX, j++)
         printf("%s  ", fila->vet[i].nome);
     printf("\n");
 }
@@ -84,21 +85,21 @@ int main() {
 
 	m_fila = criar(); //a)
 
-	//b) entram 4 pessoas e a cada entrada mostrar as pessoas da fila na ordem "da primeira até a última"
+	//b) entram 4 pessoas e a cada entrada mostrar as pessoas da fila na ordem "da primeira atÃ© a Ãºltima"
 	for(i = 0; i < 4; i++) {
         inserir(&m_fila, recebeNome());
         exibir(&m_fila);
         printf("\n");
 	}
 
-	//c) saem 3 pessoas e a cada saída mostrar as pessoas da fila na ordem "da primeira até a última"
+	//c) saem 3 pessoas e a cada saÃ­da mostrar as pessoas da fila na ordem "da primeira atÃ© a Ãºltima"
 	for(i = 0; i < 3; i++) {
         aux = remover(&m_fila);
         printf("\nSaindo %s ...\n", aux.nome);
         exibir(&m_fila);
 	}
 
-	//d) entram mais 4 pessoas e a cada entrada mostrar as pessoas da fila na ordem "da primeira até a última"
+	//d) entram mais 4 pessoas e a cada entrada mostrar as pessoas da fila na ordem "da primeira atÃ© a Ãºltima"
 	for(i = 0; i < 4; i++) {
         inserir(&m_fila, recebeNome());
         exibir(&m_fila);
